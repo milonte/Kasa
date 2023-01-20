@@ -4,12 +4,12 @@ import House from '../views/House';
 import ErrorPage from '../views/ErrorPage';
 import Home from '../views/Home';
 import About from '../views/About';
-import Root from '../views/Root';
+import BaseTemplate from '../views/BaseTemplate';
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Root />,
+        element: <BaseTemplate />,
         errorElement: <ErrorPage />,
         children: [
             {
