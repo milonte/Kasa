@@ -1,0 +1,40 @@
+@use './_config.scss' as config;
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    #logo {
+        width: 210px;
+
+        @include config.screen-max(config.$tablet-max-width) {
+            width: 175px;
+        }
+
+        @include config.screen-max(config.$phone-max-width) {
+            width: 145px;
+        }
+    }
+
+    .links {
+        font-size: 24px;
+        text-decoration: none;
+
+        @include config.screen-max(config.$phone-max-width) {
+            font-size: 12px;
+        }
+
+        :nth-child(n) {
+            margin-left: 30px;
+            color: config.$primary-color;
+            text-decoration: none;
+        }
+
+        .current-link {
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+@use './_config.scss' as config;
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', 'Segoe UI', 'Roboto';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 40px 100px;
+  margin-bottom: 0px;
+
+  @include config.screen-max(config.$tablet-max-width) {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  @include config.screen-max(config.$phone-max-width) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

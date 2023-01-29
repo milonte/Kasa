@@ -1,12 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import '../styles/navbar.scss';
 
 export default function Navbar() {
-    return (
-      <div>     
-          <div>Navbar</div>
-          <Link to={`/`}>Accueuil</Link>
-          <Link to={`/about/`}>A propos</Link>
-      </div>
-    )
+  return (
+    <div id="navbar">
+      <img id="logo" src="../images/logo.png" alt="Kasa-logo" />
+      <div className="links">
+        <NavLink to={`/`} className={({ isActive }) => isActive ? "current-link" : undefined} > Accueuil</NavLink>
+        <NavLink to={`/about/`} className={({ isActive }) => isActive ? "current-link" : undefined} > A propos</NavLink>
+      </div >
+    </div >
+  )
 }
