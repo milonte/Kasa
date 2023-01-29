@@ -7,6 +7,10 @@
     justify-content: space-between;
     align-items: center;
 
+    @include config.screen-max(config.$phone-max-width) {
+        margin: 30px;
+    }
+
     #logo {
         width: 210px;
 
@@ -22,6 +26,10 @@
     .links {
         font-size: 24px;
         text-decoration: none;
+
+        @include config.screen-max(config.$tablet-max-width) {
+            font-size: 18px;
+        }
 
         @include config.screen-max(config.$phone-max-width) {
             font-size: 12px;
