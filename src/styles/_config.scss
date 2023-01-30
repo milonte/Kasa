@@ -1,6 +1,7 @@
 $primary-color: #FF6060;
+$secondary-color: #F6F6F6;
 
-$phone-max-width: 768px;
+$phone-max-width: 480px;
 $tablet-max-width: 1280px;
 
 @mixin screen-max($max) {
