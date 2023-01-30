@@ -13,4 +13,18 @@
             height: 255px;
         }
     }
+
+    #dropdowns-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10%;
+        justify-content: space-between;
+
+        .dropdown {
+            min-width: 400px;
+            flex: 1 1 40%;
+            margin-top: 20px;
+        }
+    }
 }
