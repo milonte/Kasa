@@ -1,0 +1,16 @@
+@use './_config.scss' as config;
+
+#house {
+
+    #carousel {
+        height: 415px;
+
+        @include config.screen-max(config.$tablet-max-width) {
+            height: 325px;
+        }
+
+        @include config.screen-max(config.$phone-max-width) {
+            height: 255px;
+        }
+    }
+}
