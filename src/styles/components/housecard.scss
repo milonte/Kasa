@@ -1,6 +1,6 @@
  @use '../_config.scss' as config;
 
- $flex-item-width: 1 0 30%;
+ /* $flex-item-width: 1 0 30%; */
 
  .house-card {
      position: relative;
@@ -11,7 +11,7 @@
      border-radius: 10px;
      min-width: 265px;
      display: flex;
-     flex: $flex-item-width;
+     //flex: $flex-item-width;
 
 
      &:hover {

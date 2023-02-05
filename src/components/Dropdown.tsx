@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import '../styles/components/dropdown.scss';
 
 interface DropdownProps {
@@ -6,57 +6,35 @@ interface DropdownProps {
     children: ReactElement;
 }
 
-class Dropdown extends React.Component<DropdownProps, { isHidden: boolean }> {
-    constructor(props: any) {
-        super(props);
-        this.displayContent = this.displayContent.bind(this);
-        this.displayHeader = this.displayHeader.bind(this);
-        this.state = { isHidden: true };
-    }
+export default function Dropdown(props: DropdownProps) {
+    const [isHidden, setHidden] = useState(true);
 
-
-    displayContent() {
-        if (!this.state.isHidden) {
+    function displayContent() {
+        if (!isHidden) {
             return (
-                <div className='content'>{this.props.children}</div>
+                <div className='content'>{props.children}</div>
             )
         } else { return (<div className='buttons'></div>) }
     }
 
-    displayHeader() {
-        if (this.state.isHidden) {
-            return (
-                <div className='title' onClick={() => {
-                    this.setState({ isHidden: false });
-                }}>
-                    {this.props.title}
-                    <span className='show-btn'>
-                        &#x2039;
-                    </span>
-                </div>
-            )
-        } else {
-            return (
-                <div className='title' onClick={() => {
-                    this.setState({ isHidden: true });
-                }}>
-                    {this.props.title}
-                    <span className='show-btn'>
-                        &#x203A;
-                    </span>
-                </div>
-            )
-        }
-    }
+    function displayHeader() {
 
-    render() {
         return (
-            <div className='dropdown'>
-                <this.displayHeader />
-                <this.displayContent />
+            <div className='title' onClick={() => {
+                isHidden ? setHidden(false) : setHidden(true)
+            }}>
+                {props.title}
+                <span className='show-btn'>
+                    {isHidden ? <>&#x2039;</> : <>&#x203A;</>}
+                </span>
             </div>
-        );
+        )
     }
 
+    return (
+        <div className='dropdown'>
+            {displayHeader()}
+            {displayContent()}
+        </div>
+    );
 }
-export default Dropdown

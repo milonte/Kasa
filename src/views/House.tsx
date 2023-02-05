@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { HouseModel } from '../model/HouseModel';
 import { useLoaderData } from 'react-router-dom';
 import ErrorComponent from '../components/ErrorComponent';
@@ -7,36 +7,63 @@ import Carousel from '../components/Carousel';
 import Dropdown from '../components/Dropdown';
 
 export default function House() {
-  const house = useLoaderData() as HouseModel;
+    const house = useLoaderData() as HouseModel;
 
-  if (!house) {
-    return <div><ErrorComponent /></div>
-  }
+    if (!house) {
+        return <div><ErrorComponent /></div>
+    }
 
-  return (
-    <div id="house">
-      <Carousel pictures={house.pictures} />
-      <li>{house.title}</li>
-      <div id="dropdowns-container">
-        <Dropdown title="Description">
-          <>{house.description}</>
-        </Dropdown>
+    function displayRating(rating: number) {
+        let returnElts: Array<ReactElement> = [];
+        for (let i: number = 0; i < 5; i++) {
+            returnElts.push(React.createElement("div", {
+                className: i < rating ? 'rating-full' : 'rating-none'
+            }, `★`));
+        }
+        const container = React.createElement("div", { className: "rating" }, returnElts);
 
-        <Dropdown title="Équipements">
-          <>
-            {house.equipments.map((equipment: string) => {
-              return (
-                <li>{equipment}</li>)
-            })}
-          </>
-        </Dropdown>
-      </div>
-      <li>{house.host.name}</li>
-      <li>{house.host.picture}</li>
-      <li>{house.rating}</li>
-      <li>{house.location}</li>
+        return (<>{container}</>)
+    }
+    return (
+        <div id="house">
+            <Carousel pictures={house.pictures} />
+            <div id='infos'>
+                <div className="house">
+                    <div className='title'>{house.title}</div>
+                    <div className='location'>{house.location}</div>
+                    <div className='tags-container'> {house.tags.map(
+                        (tag: string) => { return <span className='tag'>{tag}</span> }
+                    )}</div>
+                </div>
+                <div className='host'>
+                    <div className='host-details'>
+                        <div className='host-name'>
+                            {house.host.name.split(' ').map(
+                                (word: string) => { return (<span>{word}</span>) }
+                            )}
+                        </div>
+                        <img src={house.host.picture} alt={`${house.host.name}-portrait`} className='host-picture' />
+                    </div>
+                    {displayRating(Number(house.rating))}
+                </div>
+            </div>
 
-      {house.tags.map((tag: string) => { return <li>{tag}</li> })}
-    </div>
-  )
+            <div id="dropdowns-container">
+                <Dropdown title="Description">
+                    <span>{house.description}</span>
+                </Dropdown>
+
+                <Dropdown title="Équipements">
+                    <React.Fragment>
+                        {house.equipments.map((equipment: string) => {
+                            return (
+                                <span>{equipment}</span>
+                            )
+                        })}
+                    </React.Fragment>
+                </Dropdown>
+            </div>
+
+        </div >
+    )
 }
