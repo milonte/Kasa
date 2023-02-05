@@ -25,9 +25,15 @@ const router = createBrowserRouter([
                         path: "house/:houseId",
                         element: <House />,
                         loader: ({ params }) => {
-                            return datas.find(house =>
+                            const data = datas.find(house =>
                                 house.id === params.houseId
-                            ) || null
+                            )
+                            if (!data) {
+                                throw new Response("", { status: 404 })
+                            } else {
+
+                                return data;
+                            }
                         }
                     },
                     {
@@ -38,5 +44,5 @@ const router = createBrowserRouter([
             }],
     }
 ]);
-    
+
 export default router;
