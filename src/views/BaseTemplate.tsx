@@ -4,10 +4,12 @@ import Footer from '../components/Footer'
 
 export default function BaseTemplate() {
   return (
-    <div>     
-          <Navbar />
-          <Outlet />
-          <Footer />
+    <div>
+      <Navbar />
+      <div id="outlet-container">
+        <Outlet />
       </div>
+      <Footer />
+    </div>
   )
 }
