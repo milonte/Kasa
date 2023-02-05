@@ -1,0 +1,68 @@
+@use './_config.scss' as config;
+
+#error {
+    color: config.$primary-color;
+    margin: 0;
+    font-family: 'Montserrat', 'Segoe UI', 'Roboto';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 40px 100px;
+    margin-bottom: 0px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* full height - margin-top - navbar height - bottom height */
+    height: calc(100vh - 40px - 67px - 200px);
+
+    @include config.screen-max(config.$tablet-max-width) {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    @include config.screen-max(config.$phone-max-width) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .error-status {
+        font-size: 288px;
+        font-weight: bold;
+
+        @include config.screen-max(config.$tablet-max-width) {
+            font-size: 200px;
+        }
+
+        @include config.screen-max(config.$phone-max-width) {
+            font-size: 96px;
+        }
+    }
+
+    .error-message {
+        font-size: 36px;
+
+        @include config.screen-max(config.$tablet-max-width) {
+            font-size: 25px;
+        }
+
+        @include config.screen-max(config.$phone-max-width) {
+            font-size: 18px;
+        }
+    }
+
+    .home-link {
+        font-size: 18px;
+
+        @include config.screen-max(config.$tablet-max-width) {
+            font-size: 16px;
+        }
+
+        @include config.screen-max(config.$phone-max-width) {
+            font-size: 14px;
+        }
+
+        &:visited {
+            color: config.$primary-color;
+        }
+    }
+}

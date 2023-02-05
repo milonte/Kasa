@@ -1,17 +1,12 @@
 import React, { ReactElement } from 'react'
 import { HouseModel } from '../model/HouseModel';
 import { useLoaderData } from 'react-router-dom';
-import ErrorComponent from '../components/ErrorComponent';
 import '../styles/house.scss';
 import Carousel from '../components/Carousel';
 import Dropdown from '../components/Dropdown';
 
 export default function House() {
     const house = useLoaderData() as HouseModel;
-
-    if (!house) {
-        return <div><ErrorComponent /></div>
-    }
 
     function displayRating(rating: number) {
         let returnElts: Array<ReactElement> = [];
