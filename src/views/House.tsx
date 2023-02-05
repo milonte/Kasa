@@ -17,7 +17,8 @@ export default function House() {
         let returnElts: Array<ReactElement> = [];
         for (let i: number = 0; i < 5; i++) {
             returnElts.push(React.createElement("div", {
-                className: i < rating ? 'rating-full' : 'rating-none'
+                className: i < rating ? 'rating-full' : 'rating-none',
+                key: `${rating}-${i}`
             }, `★`));
         }
         const container = React.createElement("div", { className: "rating" }, returnElts);
@@ -32,17 +33,17 @@ export default function House() {
                     <div className='title'>{house.title}</div>
                     <div className='location'>{house.location}</div>
                     <div className='tags-container'> {house.tags.map(
-                        (tag: string) => { return <span className='tag'>{tag}</span> }
+                        (tag: string) => { return <span className='tag' key={tag}>{tag}</span> }
                     )}</div>
                 </div>
                 <div className='host'>
                     <div className='host-details'>
                         <div className='host-name'>
                             {house.host.name.split(' ').map(
-                                (word: string) => { return (<span>{word}</span>) }
+                                (word: string) => { return (<span key={word}>{word}</span>) }
                             )}
                         </div>
-                        <img src={house.host.picture} alt={`${house.host.name}-portrait`} className='host-picture' />
+                        <img src={house.host.picture} alt={`${house.host.name}-portrait`} className='host-picture' key={`${house.host.name}-portrait`} />
                     </div>
                     {displayRating(Number(house.rating))}
                 </div>
@@ -57,7 +58,7 @@ export default function House() {
                     <React.Fragment>
                         {house.equipments.map((equipment: string) => {
                             return (
-                                <span>{equipment}</span>
+                                <span key={equipment}>{equipment}</span>
                             )
                         })}
                     </React.Fragment>
