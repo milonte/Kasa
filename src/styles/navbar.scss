@@ -7,8 +7,14 @@
     justify-content: space-between;
     align-items: center;
 
+    margin: 40px 100px;
+
+    @include config.screen-max(config.$tablet-max-width) {
+        margin: 30px 30px;
+    }
+
     @include config.screen-max(config.$phone-max-width) {
-        margin: 30px;
+        margin: 0 30px;
     }
 
     #logo {
