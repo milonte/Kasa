@@ -11,7 +11,7 @@ export default function Home() {
       <div className="banner">Chez vous, partout et ailleurs</div>
       <div className="houses-container">
         {houses.map((house) => (
-          <HouseCard key={house.id} id={house.id} title={house.title} cover={house.cover} flex="1 0 30%" />
+          <HouseCard key={house.id} id={house.id} title={house.title} cover={house.cover} />
         ))}
       </div>
     </div>

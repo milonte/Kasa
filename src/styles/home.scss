@@ -6,7 +6,7 @@ $items-gap: 40px;
 
     .banner,
     .houses-container {
-        margin: 20px 0;
+        margin: 30px 0;
 
         @include config.screen-max(config.$phone-max-width) {
             margin: 10px 0;
@@ -39,12 +39,21 @@ $items-gap: 40px;
     .houses-container {
         background-color: config.$secondary-color;
         border-radius: 25px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: $items-gap;
-        gap: $items-gap;
+        justify-content: center;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(calc(33% - $items-gap), 1fr));
+        column-gap: $items-gap;
+        row-gap: $items-gap;
+
+        @include config.screen-max(config.$tablet-max-width) {
+            grid-template-columns: repeat(auto-fill, minmax(calc(50% - $items-gap), 1fr));
+        }
+
+        @include config.screen-max(calc(config.$phone-max-width + 100px)) {
+            grid-template-columns: 100%;
+
+        }
 
         @include config.screen-max(config.$phone-max-width) {
             padding: 20px;
