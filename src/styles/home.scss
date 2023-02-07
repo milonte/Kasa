@@ -1,0 +1,64 @@
+@use './_config.scss' as config;
+
+$items-gap: 40px;
+
+#home {
+
+    .banner,
+    .houses-container {
+        margin: 30px 0;
+
+        @include config.screen-max(config.$phone-max-width) {
+            margin: 10px 0;
+        }
+    }
+
+    .banner {
+        background: url('../../public/images/home-banner.png');
+        background-size: cover;
+        background-blend-mode: multiply;
+        background-color: rgba(0, 0, 0, .4);
+
+        @include config.screen-max(config.$tablet-max-width) {
+            justify-content: left;
+            border-radius: 15px;
+            height: 160px;
+            padding-left: 40px;
+            font-size: 36px;
+        }
+
+        @include config.screen-max(config.$phone-max-width) {
+            border-radius: 10px;
+            height: 110px;
+            padding-left: 40px;
+            font-size: 24px;
+            margin: 0 20px;
+        }
+    }
+
+    .houses-container {
+        background-color: config.$secondary-color;
+        border-radius: 25px;
+        justify-content: center;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(calc(33% - $items-gap), 1fr));
+        column-gap: $items-gap;
+        row-gap: $items-gap;
+
+        @include config.screen-max(config.$tablet-max-width) {
+            grid-template-columns: repeat(auto-fill, minmax(calc(50% - $items-gap), 1fr));
+        }
+
+        @include config.screen-max(calc(config.$phone-max-width + 100px)) {
+            grid-template-columns: 100%;
+
+        }
+
+        @include config.screen-max(config.$phone-max-width) {
+            padding: 20px;
+            gap: 20px;
+        }
+    }
+
+}
