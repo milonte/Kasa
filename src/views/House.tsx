@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react'
 import { HouseModel } from '../model/HouseModel';
 import { useLoaderData } from 'react-router-dom';
 import '../styles/house.scss';
+import { HelmetProvider, Helmet } from "react-helmet-async";
 import Carousel from '../components/Carousel';
 import Dropdown from '../components/Dropdown';
 
@@ -22,6 +23,12 @@ export default function House() {
     }
     return (
         <div id="house">
+            <HelmetProvider>
+                <Helmet>
+                    <title>{house.title}</title>
+                    <meta name="description" content={house.description} />
+                </Helmet>
+            </HelmetProvider>
             <Carousel pictures={house.pictures} />
             <div id='infos'>
                 <div className="house">

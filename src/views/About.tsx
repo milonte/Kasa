@@ -1,9 +1,15 @@
 import Dropdown from "../components/Dropdown";
+import { HelmetProvider, Helmet } from "react-helmet-async";
 import '../styles/about.scss';
 
 export default function About() {
   return (
     <div id="about">
+      <HelmetProvider>
+        <Helmet>
+          <title>A propos</title>
+        </Helmet>
+      </HelmetProvider>
       <div className="banner"></div>
       <div className="dropdown-container">
         <Dropdown title="Fiabilité">
