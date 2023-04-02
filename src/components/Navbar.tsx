@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { NavLink } from 'react-router-dom'
 import '../styles/navbar.scss';
 import { Link } from 'react-router-dom';
 
-export default function Navbar() {
+export default function Navbar(): ReactElement {
   return (
     <div id="navbar">
       <Link to={'/'}><img id="logo" src="../images/logo.png" alt="Kasa-logo" /></Link>

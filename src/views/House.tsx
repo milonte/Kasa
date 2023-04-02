@@ -5,10 +5,10 @@ import '../styles/house.scss';
 import Carousel from '../components/Carousel';
 import Dropdown from '../components/Dropdown';
 
-export default function House() {
+export default function House(): ReactElement {
     const house = useLoaderData() as HouseModel;
 
-    function displayRating(rating: number) {
+    function displayRating(rating: number): ReactElement {
         let returnElts: Array<ReactElement> = [];
         for (let i: number = 0; i < 5; i++) {
             returnElts.push(React.createElement("div", {

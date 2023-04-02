@@ -3,10 +3,12 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useRouteError } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { ReactElement } from 'react';
 
-export default function ErrorPage() {
+export default function ErrorPage(): ReactElement {
   const error: any = useRouteError();
-  function displayError() {
+
+  function displayError(): ReactElement {
     return (
       <>
         <div className='error-status'>{error.status}</div>
@@ -17,6 +19,7 @@ export default function ErrorPage() {
       </>
     )
   }
+
   return (
     <>
       <Navbar />

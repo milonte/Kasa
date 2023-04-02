@@ -1,6 +1,7 @@
+import { ReactElement } from 'react';
 import '../styles/footer.scss';
 
-export default function Footer() {
+export default function Footer(): ReactElement {
   return (
     <div id="footer">
       <img className="footer-logo" src="../images/logo.png" alt="Kasa-logo" />

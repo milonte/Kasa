@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import { ReactElement, useState } from 'react';
 import '../styles/components/dropdown.scss';
 
 interface DropdownProps {
@@ -6,10 +6,10 @@ interface DropdownProps {
     children: ReactElement;
 }
 
-export default function Dropdown(props: DropdownProps) {
-    const [isHidden, setHidden] = useState(true);
+export default function Dropdown(props: DropdownProps): ReactElement {
+    const [isHidden, setHidden] = useState<boolean>(true);
 
-    function displayContent() {
+    function displayContent(): ReactElement {
         if (!isHidden) {
             return (
                 <div className='content'>{props.children}</div>
@@ -17,7 +17,7 @@ export default function Dropdown(props: DropdownProps) {
         } else { return (<div className='buttons'></div>) }
     }
 
-    function displayHeader() {
+    function displayHeader(): ReactElement {
 
         return (
             <div className='title' onClick={() => {

@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import '../styles/components/carousel.scss';
 
 interface CarouselProps {
     pictures: Array<string>;
 }
 
-export default function Carousel(props: CarouselProps) {
-    const [index, setIndex] = useState(0);
+export default function Carousel(props: CarouselProps): ReactElement {
+    const [index, setIndex] = useState<number>(0);
 
-    function handlePrevIndex() {
-        const indexResult = index > 0 ? index - 1 : props.pictures.length - 1;
+    function handlePrevIndex(): void {
+        const indexResult: number = index > 0 ? index - 1 : props.pictures.length - 1;
         setIndex(indexResult);
     }
 
-    function handleNextIndex() {
-        const indexResult = index < props.pictures.length - 1 ? index + 1 : 0;
+    function handleNextIndex(): void {
+        const indexResult: number = index < props.pictures.length - 1 ? index + 1 : 0;
         setIndex(indexResult);
     }
 
-    function displayButton() {
+    function displayButton(): ReactElement {
         return (
             <div className='buttons'>
                 {props.pictures.length > 1 ?
