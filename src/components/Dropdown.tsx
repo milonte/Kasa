@@ -14,7 +14,7 @@ export default function Dropdown(props: DropdownProps): ReactElement {
             return (
                 <div className='content'>{props.children}</div>
             )
-        } else { return (<div className='buttons'></div>) }
+        } else { return (<></>) }
     }
 
     function displayHeader(): ReactElement {

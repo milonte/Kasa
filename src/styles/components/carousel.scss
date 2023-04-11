@@ -9,9 +9,12 @@
     align-items: center;
     position: relative;
 
+
+
     .picture {
         object-fit: cover;
         width: 100%;
+        min-height: 415px;
     }
 
     .buttons {
