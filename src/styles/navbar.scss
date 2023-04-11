@@ -26,6 +26,7 @@
 
         @include config.screen-max(config.$phone-max-width) {
             width: 145px;
+            height: 47px;
         }
     }
 
