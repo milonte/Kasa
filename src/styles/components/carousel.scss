@@ -9,9 +9,12 @@
     align-items: center;
     position: relative;
 
+
+
     .picture {
         object-fit: cover;
         width: 100%;
+        min-height: 415px;
     }
 
     .buttons {
@@ -31,5 +34,15 @@
             margin: 40px;
             cursor: pointer;
         }
+    }
+
+    .current-index {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 20px;
+        font-size: 18px;
+        color: white;
+        font-weight: 500;
     }
 }

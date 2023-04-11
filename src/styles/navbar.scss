@@ -14,7 +14,7 @@
     }
 
     @include config.screen-max(config.$phone-max-width) {
-        margin: 0 30px;
+        margin: 20px 30px;
     }
 
     #logo {
@@ -26,6 +26,7 @@
 
         @include config.screen-max(config.$phone-max-width) {
             width: 145px;
+            height: 47px;
         }
     }
 

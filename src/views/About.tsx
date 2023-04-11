@@ -1,7 +1,8 @@
+import { ReactElement } from "react";
 import Dropdown from "../components/Dropdown";
 import '../styles/about.scss';
 
-export default function About() {
+export default function About(): ReactElement {
   return (
     <div id="about">
       <div className="banner"></div>

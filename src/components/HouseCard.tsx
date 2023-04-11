@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import '../styles/components/housecard.scss';
+import { ReactElement } from 'react';
 
 interface HouseCardProps {
   id: string;
@@ -7,7 +8,7 @@ interface HouseCardProps {
   cover: string;
 }
 
-export default function HouseCard(props: HouseCardProps) {
+export default function HouseCard(props: HouseCardProps): ReactElement {
   return (
     <Link to={`house/${props.id}`} className="house-card" key={props.id}>
       <img className="cover" src={props.cover} alt={`${props.title}-cover`} />
